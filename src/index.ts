@@ -1,13 +1,17 @@
-import { supabase } from './lib/supabase'
+import { WhatsAppClient } from './core/whatsapp'
 
-const testConnection = async () => {
-	const { data, error } = await supabase.from('matches').select('*')
+const startBot = async () => {
+	const whatsapp = new WhatsAppClient({
+		reconnectInterval: 5_000,
+		qrCodeSize: 'small',
+	})
 
-	if (error) {
-		console.error('Erro ao conectar com o Supabase:', error)
-	} else {
-		console.log('Conexão com o Supabase bem-sucedida:', data)
+	try {
+		await whatsapp.initialize()
+	} catch (error) {
+		console.error('Erro ao iniciar o bot:', error)
+		process.exit(1)
 	}
 }
 
-testConnection()
+startBot()
