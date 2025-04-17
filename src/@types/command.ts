@@ -1,4 +1,4 @@
-import type { proto } from '@whiskeysockets/baileys'
+import type { proto } from 'baileys'
 
 export type Command = {
 	name: string

@@ -1,8 +1,8 @@
 import type { Boom } from '@hapi/boom'
-import { pingCommand } from '../../commands'
+import { pingCommand, registerCommand } from '../../commands'
 import { CommandManager } from '../command-manager'
 import { createWhatsAppSocket } from './socket'
-import { DisconnectReason } from '@whiskeysockets/baileys'
+import { DisconnectReason } from 'baileys'
 
 interface ConnectionConfig {
 	reconnectInterval?: number
@@ -44,6 +44,7 @@ export class WhatsAppClient {
 			this.commandManager = new CommandManager(socket)
 
 			this.commandManager.register(pingCommand(socket))
+			this.commandManager.register(registerCommand(socket))
 
 			socket.ev.on('creds.update', saveCreds)
 

@@ -1,4 +1,4 @@
-import { makeWASocket, useMultiFileAuthState } from '@whiskeysockets/baileys'
+import { makeWASocket, useMultiFileAuthState } from 'baileys'
 import P from 'pino'
 
 const logger = P({ level: 'silent' })

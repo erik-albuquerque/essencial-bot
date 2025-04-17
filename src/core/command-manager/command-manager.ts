@@ -1,4 +1,4 @@
-import type { proto } from '@whiskeysockets/baileys'
+import type { proto } from 'baileys'
 import type { Command } from '../../@types/command'
 import type { Socket } from '../../@types/socket'
 
