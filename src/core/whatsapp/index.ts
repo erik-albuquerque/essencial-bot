@@ -1,5 +1,5 @@
 import type { Boom } from '@hapi/boom'
-import { pingCommand, registerCommand } from '../../commands'
+import { pingCommand, getProductByNameCommand } from '../../commands'
 import { CommandManager } from '../command-manager'
 import { createWhatsAppSocket } from './socket'
 import { DisconnectReason } from 'baileys'
@@ -44,7 +44,7 @@ export class WhatsAppClient {
 			this.commandManager = new CommandManager(socket)
 
 			this.commandManager.register(pingCommand(socket))
-			this.commandManager.register(registerCommand(socket))
+			this.commandManager.register(getProductByNameCommand(socket))
 
 			socket.ev.on('creds.update', saveCreds)
 
