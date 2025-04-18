@@ -1,4 +1,4 @@
-import { WhatsAppClient } from './core/whatsapp'
+import { WhatsAppClient } from "./src/core/whatsapp"
 
 const startBot = async () => {
 	const whatsapp = new WhatsAppClient({
