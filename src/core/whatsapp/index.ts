@@ -23,7 +23,7 @@ export class WhatsAppClient {
 
 	private handleConnectionClose(error: Boom) {
 		const shouldReconnect =
-			error.output.statusCode !== DisconnectReason.loggedOut
+			error?.output?.statusCode !== DisconnectReason.loggedOut
 
 		console.log(
 			`❌ Bot desconectado! ${
